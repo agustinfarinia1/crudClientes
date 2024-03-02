@@ -1,0 +1,36 @@
+  <form class="container bg-secondary" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <h3>{{tituloFormulario}}</h3>
+    <div class="d-flex align-items-center">
+      <div class="col-4 p-1">
+        <span>
+          ID Cliente:
+        </span>
+        <input type="number" class="form-control" placeholder="clientId" formControlName="id"/>
+      </div>
+      <div  class="col-4 p-1">
+        <span>Nombre Cliente:</span>
+        <input type="text" class="form-control" placeholder="firstName" formControlName="firstName"/>
+      </div>
+      <div  class="col-4 p-1">
+        <span>Apellido Cliente:</span>
+        <input type="text" class="form-control" placeholder="lastName" formControlName="lastName"/>
+      </div>
+    </div>
+    <div  class="d-flex align-items-center">
+      <div  class="col-4 p-1">
+        <span>DNI Cliente:</span>
+        <input type="number" class="form-control" placeholder="DNI cliente" formControlName="dni"/>
+      </div>
+      <div  class="col-4 p-1">
+        <span>Email Cliente:</span>
+        <input type="text" class="form-control" placeholder="Email cliente" formControlName="email"/>
+      </div>
+      <div  class="col-4 p-1">
+        <span>Direccion Cliente:</span>
+        <input type="text" class="form-control" placeholder="Direccion cliente" formControlName="address"/>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center p-2">
+      <button type="button" class="btn btn-primary" (click)="onSubmit()">{{mensajeBoton}}</button>
+    </div>
+  </form>

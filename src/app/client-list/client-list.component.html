@@ -1,0 +1,55 @@
+<div class="container bg-secondary mt-1">
+  <h4>Lista Empleados</h4>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          FirstName
+        </th>
+        <th>
+          LastName
+        </th>
+        <th>
+          DNI
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Address
+        </th>
+        <th>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let cliente of listaClientes; let i = index">
+        <td>
+          {{cliente.id}}
+        </td>
+        <td>
+          {{cliente.firstName}}
+        </td>
+        <td>
+          {{cliente.lastName}}
+        </td>
+        <td>
+          {{cliente.dni}}
+        </td>
+        <td>
+          {{cliente.email}}
+        </td>
+        <td>
+          {{cliente.address}}
+        </td>
+        <td class="col-2 flex justify-content-between">
+          <button type="button" class="btn btn-outline-light btn-sm" [routerLink]="['/actualizar',i+1]">Modificar</button>
+          <button type="button" class="btn btn-outline-danger btn-sm" (click)="eliminarCliente(this.i)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
