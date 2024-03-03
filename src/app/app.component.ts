@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import {initializeApp} from "firebase/app";
+import { LoginService } from './services/login.service';
+import { environment } from './environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Aministracion de Clientes';
+  app = initializeApp(
+    {apiKey: environment.apiKey,
+    authDomain: environment.authDomain});
+
+  login = inject(LoginService);
 }

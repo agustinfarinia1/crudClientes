@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center">
+  <form class="d-flex flex-column bg-info rounded" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="p-2">
+      <label>Usuario:</label>
+      <input type="email" class="form-control" placeholder="Usuario" formControlName="user"/>
+    </div>
+    <div class="p-2">
+      <label>Contraseña:</label>
+      <input type="password" class="form-control" placeholder="Contraseña" formControlName="password"/>
+    </div>
+    <div class="d-flex justify-content-center mb-1">
+      <button type="submit" class="btn btn-dark">Loguearse</button>
+    </div>
+  </form>
+</div>

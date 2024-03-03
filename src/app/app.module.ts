@@ -1,19 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import { ClientAddEditComponent } from './client-add-edit/client-add-edit.component';
-import { ClientListComponent } from './client-list/client-list.component';
+import { ClientAddEditComponent } from './components/client-add-edit/client-add-edit.component';
+import { ClientListComponent } from './components/client-list/client-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { DatabaseService } from './services/database.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { DataService } from './services/data.service';
+import { LoginService } from './services/login.service';
+import { CookieService } from 'ngx-cookie-service';
+import { RouterService } from './services/router.service';
+import { canActivate } from './login.guardian';
 
 const appRoutes:Routes=[
-  {path:"",component:HomePageComponent},
-  {path:"actualizar/:index",component:ClientAddEditComponent}]
+  {path:"",component:HomePageComponent,canActivate:[canActivate]},
+  {path:"lista",component:ClientListComponent,canActivate:[canActivate]},
+  {path:"login",component:LoginComponent},
+  {path:"actualizar/:index",component:ClientAddEditComponent,canActivate:[canActivate]}]
 
 @NgModule({
   declarations: [
@@ -22,6 +29,7 @@ const appRoutes:Routes=[
     ClientListComponent,
     HomePageComponent,
     NavBarComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +37,7 @@ const appRoutes:Routes=[
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [DatabaseService],
+  providers: [DatabaseService,DataService,LoginService,CookieService,RouterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

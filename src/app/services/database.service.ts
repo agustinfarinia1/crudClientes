@@ -2,40 +2,46 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { client } from '../models/client.model';
 import { Observable } from 'rxjs';
+import { LoginService } from './login.service';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService implements OnInit{
 
-  constructor(private httpCliente:HttpClient) {}
+  constructor(private httpCliente:HttpClient,private login:LoginService) {}
 
   ngOnInit(): void {
   }
 
-  url:string = "https://crud-clientes-d0d60-default-rtdb.firebaseio.com/datos.json";
+  url:string = environment.url;
+  token = this.login.getIdToken();
+
 
   getClientesDatabase(){
-    return this.httpCliente.get(this.url);
+    let urlGet:string = `${this.url}.json?auth=${this.token}`;
+    return this.httpCliente.get(urlGet);
   }
 
   guardarClientes(listaClientes:client[]){
-    this.httpCliente.put(this.url,listaClientes)
+    let urlGuardar:string = `${this.url}.json?auth=${this.token}`;
+    this.httpCliente.put(urlGuardar,listaClientes)
     .subscribe((response) => {
       return response;
     })
   }
 
   actualizarCliente(indice:number,cliente:client){
-    let urlActualizacion = "https://crud-clientes-d0d60-default-rtdb.firebaseio.com/datos/"+indice+".json";
-    this.httpCliente.put(urlActualizacion,cliente)
+    let urlActualizar:string = `${this.url}/${indice}.json`;
+    this.httpCliente.put(urlActualizar,cliente)
     .subscribe((response) => {
       return response;
     })
   }
 
   eliminarCliente(indice:number){
-    let urlEliminar = "https://crud-clientes-d0d60-default-rtdb.firebaseio.com/datos/"+indice+".json";
+    let urlEliminar = `${this.url}/${indice}.json`;
     this.httpCliente.delete(urlEliminar)
     .subscribe((response) => {
       return response;
