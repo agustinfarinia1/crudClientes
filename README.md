@@ -2,6 +2,8 @@
 
 - Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) Version 16.1.0.
 - [Link al proyecto](https://github.com/angular/angular-cli)
+- Usuario administrador: admin@gmail.com
+- Contraseña administrador: 123321
 
 ## Descripcion
 - CRUD basico de Clientes.
