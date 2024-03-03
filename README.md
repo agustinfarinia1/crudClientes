@@ -1,7 +1,7 @@
 # CrudClientes
 
--Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) Version 16.1.0.
--[Link al proyecto](https://github.com/angular/angular-cli)
+- Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) Version 16.1.0.
+- [Link al proyecto](https://github.com/angular/angular-cli)
 
 ## Descripcion
 - CRUD basico de Clientes.
