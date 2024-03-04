@@ -44,7 +44,7 @@ export class ClientAddEditComponent implements OnInit{
       if(cliente){
         this.formulario.setValue(cliente);
         this.mensajeBoton = "Actualizar";
-        this.tituloFormulario = "Actualizar Usuario"
+        this.tituloFormulario = "Actualizar Cliente"
       }
     }
   }
@@ -52,7 +52,7 @@ export class ClientAddEditComponent implements OnInit{
   indice:number;
   formulario:FormGroup;
   mensajeBoton:string = "Crear";
-  tituloFormulario:string = "Agregar Usuario";
+  tituloFormulario:string = "Agregar Cliente";
   listaClientes: client[];
 
   onSubmit(){
