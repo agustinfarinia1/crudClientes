@@ -27,10 +27,7 @@ export class ClientAddEditComponent implements OnInit{
 
   ngOnInit(): void {
     let cliente:client;
-    let index = this.route.snapshot.params['index'];
-    if(index){
-      this.indice = index;
-    }
+    this.indice = this.route.snapshot.params['index'];
     if(this.login.isLogged()){
       this.dataService.getClientes().subscribe((response) =>{
         if(response){
@@ -57,13 +54,8 @@ export class ClientAddEditComponent implements OnInit{
 
   onSubmit(){
     let cliente : client = new client(this.formulario.value["id"],this.formulario.value["firstName"],this.formulario.value["lastName"],this.formulario.value["dni"],this.formulario.value["email"],this.formulario.value["address"]);
-    console.log(cliente);
-    console.log(this.indice);
-    if(this.indice == -1){
+    if(!this.indice){
       this.dataService.guardarCliente(cliente);
-      if(this.route.snapshot.params['index']){
-        this.router.irHome();
-      }
     }
     else{
       this.actualizarCliente(cliente);

@@ -1,0 +1,19 @@
+<div class="container border border-secondary rounded mt-3 mb-1 pb-3" style="max-width: 350px;" *ngIf="this.cliente.firstName">
+  <div class="container-sm d-flex align-items-center flex-column">
+    <h4>Detalle Empleado</h4>
+  </div>
+  <div class="mb-2">
+    <p *ngIf="this.cliente">
+      {{this.cliente.firstName}} {{this.cliente.lastName}} - {{this.cliente.email}}
+    </p>
+    <div class="d-flex align-items-center">
+      <div class="mr-auto p-2">
+        <button type="button" class="btn btn-dark btn-sm" [routerLink]="['/actualizar',this.indice]">Modificar</button>
+      </div>
+      <div class="p-2">
+        <button type="button" class="btn btn-danger btn-sm" (click)="eliminarCliente()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

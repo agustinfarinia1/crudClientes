@@ -1,19 +1,19 @@
-<nav class="navbar navbar-expand-sm bg-light">
-  <ul class="navbar-nav">
+<nav class="navbar navbar-expand-sm" style="background-color: #454E9E;">
+  <ul class="navbar-nav pl-3 m-3 mt-0 mb-0">
       <li class="nav-item">
-          <a class=" nav-link texto-header " routerLink="/">Inicio </a>
+          <a class=" nav-link texto-header text-light" routerLink="/">Inicio </a>
       </li>
       <li class="nav-item">
-          <a class="nav-link texto-header" routerLink="/actualizar/-1">Alta</a>
+          <a class="nav-link texto-header  text-light" routerLink="/actualizar/-1">Alta</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link texto-header" routerLink="/lista">Lista</a>
+          <a class="nav-link texto-header  text-light" routerLink="/lista">Lista</a>
       </li>
       <li class="nav-item" *ngIf="!isLogged()">
-          <a class="nav-link texto-header" routerLink="/login">Login</a>
+          <a class="nav-link texto-header  text-light" routerLink="/login">Login</a>
       </li>
       <li class="nav-item" *ngIf="isLogged()">
-        <a class="nav-link texto-header" routerLink="/login" (click)="logout()">Logout</a>
+        <a class="nav-link texto-header  text-light" routerLink="/login" (click)="logout()">Logout</a>
     </li>
   </ul>
 </nav>
